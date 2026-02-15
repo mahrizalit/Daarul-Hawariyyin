@@ -1,0 +1,8 @@
+{
+  "name": "Pesantren Daarul Hawariyyin",
+  "description": "Landing page profesional untuk pondok pesantren Daarul Hawariyyin yang berfokus pada penggalangan dana, pendaftaran santri, dan dokumentasi kegiatan harian dengan tema biru laut.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
