@@ -1,5 +1,5 @@
 
-import { Activity, DonationProgram } from './types';
+import { Activity, DonationProgram, Article } from './types';
 
 export const SUBJECTS = [
   "Tafsir", "Hadits", "Tauhid", "Fiqih", "Tasawwuf", "Nahwu", "Shorof", "Tarikh", "Tajwid"
@@ -47,13 +47,51 @@ export const ACTIVITIES: Activity[] = [
   }
 ];
 
+export const ARTICLES: Article[] = [
+  {
+    id: 'art1',
+    title: 'Keutamaan Menuntut Ilmu di Usia Dini',
+    summary: 'Mendidik anak dengan Al-Quran sejak dini adalah investasi terbaik bagi masa depan mereka dan orang tua.',
+    date: '12 Mei 2024',
+    category: 'Pendidikan',
+    imageUrl: 'https://images.unsplash.com/photo-1584036533827-45bce1665481?q=80&w=800',
+    author: 'Ustadz Furqon'
+  },
+  {
+    id: 'art2',
+    title: 'Mengapa Adab Harus Lebih Utama dari Ilmu?',
+    summary: 'Di Daarul Hawariyyin, kami menekankan bahwa kepintaran tanpa adab hanyalah kesia-siaan. Mari simak alasannya.',
+    date: '10 Mei 2024',
+    category: 'Akhlak',
+    imageUrl: 'https://images.unsplash.com/photo-1590076202481-26cf4fc216b1?q=80&w=800',
+    author: 'Ustadz Baihaqi'
+  },
+  {
+    id: 'art3',
+    title: 'Pentingnya Wakaf Jariyah untuk Fasilitas Santri',
+    summary: 'Bagaimana sedekah jariyah Anda berubah menjadi ilmu yang bermanfaat yang terus mengalir pahalanya.',
+    date: '08 Mei 2024',
+    category: 'Inspirasi',
+    imageUrl: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?q=80&w=800',
+    author: 'Ustadz M Taufiq'
+  }
+];
+
 export const DONATION_PROGRAMS: DonationProgram[] = [
   {
+    id: 'd0',
+    title: 'Pembangunan Mushola',
+    target: 150000000,
+    current: 45000000,
+    description: 'Membangun rumah Allah sebagai pusat ibadah dan cahaya ilmu bagi 20 santri perintis kami.',
+    icon: '🕌'
+  },
+  {
     id: 'd1',
-    title: 'Wakaf Pembangunan',
-    target: 100000000,
-    current: 25000000,
-    description: 'Bantuan pembangunan gedung asrama dan ruang kelas untuk santri perintis.',
+    title: 'Wakaf Pembangunan Pesantren',
+    target: 500000000,
+    current: 125000000,
+    description: 'Perluasan asrama dan ruang belajar untuk menampung lebih banyak santri di masa depan.',
     icon: '🏗️'
   },
   {
@@ -61,7 +99,7 @@ export const DONATION_PROGRAMS: DonationProgram[] = [
     title: 'Infaq Makan Santri',
     target: 15000000,
     current: 4500000,
-    description: 'Subsidi konsumsi harian bagi 20 santri, termasuk santri yatim yang digratiskan.',
+    description: 'Menjamin ketersediaan makanan bergizi bagi para santri penghafal Al-Quran setiap harinya.',
     icon: '🍲'
   },
   {
@@ -69,7 +107,7 @@ export const DONATION_PROGRAMS: DonationProgram[] = [
     title: 'Sarana Kitab & Kasur',
     target: 20000000,
     current: 12000000,
-    description: 'Pengadaan kitab kuning dan fasilitas asrama yang layak.',
+    description: 'Pengadaan kitab kuning dan fasilitas asrama yang layak bagi santri mukim.',
     icon: '📚'
   }
 ];

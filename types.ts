@@ -16,6 +16,16 @@ export interface DonationProgram {
   icon: string;
 }
 
+export interface Article {
+  id: string;
+  title: string;
+  summary: string;
+  date: string;
+  category: string;
+  imageUrl: string;
+  author: string;
+}
+
 export interface Testimonial {
   id: string;
   name: string;

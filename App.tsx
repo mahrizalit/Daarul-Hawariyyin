@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import Activities from './components/Activities';
 import Donation from './components/Donation';
 import Registration from './components/Registration';
+import LatestArticles from './components/LatestArticles';
 import Footer from './components/Footer';
 import { SUBJECTS, KITABS, SCHEDULE } from './constants';
 
@@ -13,10 +14,11 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-slate-50 selection:bg-brochure-blue-light selection:text-white">
       <Navbar />
       <main>
+        {/* 1. Banner + Headline */}
         <Hero />
         
-        {/* Visi & Misi Section */}
-        <section className="py-24 bg-slate-50">
+        {/* 2. Misi Section */}
+        <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
               <div className="order-2 lg:order-1 relative">
@@ -67,7 +69,13 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Curriculum Section - Uses specific Blues */}
+        {/* 3. Aktivitas Santri */}
+        <Activities />
+
+        {/* 4. Pendaftaran (Daftarkan Generasi) */}
+        <Registration />
+
+        {/* 5. Kurikulum Section */}
         <section className="py-24 bg-brochure-blue-dark text-white relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-20">
@@ -84,14 +92,10 @@ const App: React.FC = () => {
                 </h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
                   {SUBJECTS.map(s => (
-                    <div key={s} className="bg-white/5 p-5 rounded-2xl text-center font-black text-brochure-blue-light border-2 border-white/5 hover:border-yellow-400 hover:text-yellow-400 transition-all cursor-default">
+                    <div key={s} className="bg-white/5 p-5 rounded-2xl text-center font-black text-brochure-blue-light border-2 border-white/5 hover:border-yellow-400 hover:text-yellow-400 transition-all cursor-default text-sm md:text-base">
                       {s}
                     </div>
                   ))}
-                </div>
-                <div className="mt-12 p-6 bg-brochure-blue-medium/30 rounded-3xl border-2 border-white/10 flex items-center gap-5">
-                  <div className="text-4xl">🌍</div>
-                  <p className="text-sm font-bold text-blue-100">Dilengkapi dengan praktikum intensif Berbahasa Arab & Inggris sebagai bahasa komunikasi harian santri.</p>
                 </div>
               </div>
 
@@ -107,7 +111,7 @@ const App: React.FC = () => {
                         <span className="px-3 py-1 bg-yellow-400 text-brochure-blue-dark text-[10px] font-black uppercase tracking-widest rounded-full">{k.cat}</span>
                         <div className="h-px flex-1 bg-white/10"></div>
                       </div>
-                      <p className="text-blue-50 font-medium leading-relaxed bg-white/5 p-5 rounded-2xl border border-white/5 group-hover/item:border-yellow-400/50 transition-all">
+                      <p className="text-blue-50 font-medium leading-relaxed bg-white/5 p-5 rounded-2xl border border-white/5 group-hover/item:border-yellow-400/50 transition-all text-sm md:text-base">
                         {k.items}
                       </p>
                     </div>
@@ -116,12 +120,10 @@ const App: React.FC = () => {
               </div>
             </div>
           </div>
-          {/* Decorative shapes to mimic brochure's energy */}
           <div className="absolute top-0 right-0 w-1/2 h-full bg-brochure-blue-medium/10 -skew-x-12 translate-x-1/2"></div>
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-brochure-blue-light/20 rounded-full blur-[100px]"></div>
         </section>
 
-        {/* Daily Schedule - Modern Timeline Style */}
+        {/* 6. Jadwal Harian */}
         <section className="py-24 bg-white">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-20">
@@ -130,10 +132,10 @@ const App: React.FC = () => {
             </div>
             <div className="space-y-4">
               {SCHEDULE.map((s, idx) => (
-                <div key={idx} className="flex flex-col md:flex-row md:items-center p-8 bg-slate-50 rounded-[2rem] hover:bg-brochure-blue-dark hover:text-white transition-all duration-300 group shadow-sm hover:shadow-2xl hover:shadow-brochure-blue-dark/30 cursor-default">
-                  <div className="w-48 font-black text-brochure-blue-dark text-2xl mb-3 md:mb-0 group-hover:text-yellow-400 transition-colors">{s.time}</div>
-                  <div className="flex-1 font-bold text-xl md:text-2xl text-slate-700 group-hover:text-white transition-colors">{s.activity}</div>
-                  <div className="mt-4 md:mt-0 opacity-0 group-hover:opacity-100 transition-all transform translate-x-4 group-hover:translate-x-0">
+                <div key={idx} className="flex flex-col md:flex-row md:items-center p-6 md:p-8 bg-slate-50 rounded-[2.5rem] hover:bg-brochure-blue-dark hover:text-white transition-all duration-300 group shadow-sm hover:shadow-2xl hover:shadow-brochure-blue-dark/30 cursor-default">
+                  <div className="w-full md:w-48 font-black text-brochure-blue-dark text-xl md:text-2xl mb-2 md:mb-0 group-hover:text-yellow-400 transition-colors">{s.time}</div>
+                  <div className="flex-1 font-bold text-lg md:text-2xl text-slate-700 group-hover:text-white transition-colors">{s.activity}</div>
+                  <div className="mt-4 md:mt-0 opacity-0 group-hover:opacity-100 transition-all transform translate-x-4 group-hover:translate-x-0 hidden md:flex">
                     <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-xl">✨</div>
                   </div>
                 </div>
@@ -142,75 +144,47 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        <Activities />
-        <Donation />
-        
-        {/* Registration Section */}
-        <section id="daftar" className="py-24 bg-slate-50 relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="bg-gradient-to-br from-brochure-blue-dark to-brochure-blue-medium rounded-[4rem] p-8 md:p-16 lg:p-24 text-white flex flex-col lg:flex-row gap-20 shadow-2xl relative overflow-hidden">
-              {/* Abstract fluid background for the card */}
-              <div className="absolute top-0 right-0 w-full h-full bg-white/5 -skew-x-12 translate-x-1/2"></div>
-              
-              <div className="lg:w-1/2 relative z-10">
-                <div className="inline-block px-5 py-2 bg-yellow-400 text-brochure-blue-dark rounded-full text-xs font-black mb-10 shadow-xl">
-                  PSB 2025/2026 : GELOMBANG I
-                </div>
-                <h3 className="text-4xl md:text-6xl font-black mb-10 leading-[1.1]">Daftarkan Generasi <br/><span className="text-yellow-400">Penerus</span> Kebanggaan Anda</h3>
-                
-                <div className="bg-white/10 backdrop-blur-xl rounded-[3rem] p-10 mb-10 border border-white/20 shadow-2xl">
-                  <div className="flex items-center justify-between mb-10">
-                    <h4 className="font-black text-3xl">Estimasi Biaya</h4>
-                    <div className="text-right">
-                      <p className="text-yellow-400 font-black text-4xl">Rp 2.500.000</p>
+        {/* 7. Artikel Terbaru */}
+        <LatestArticles />
+
+        {/* 8. Pembangunan Mushola (Urgent Banner) */}
+        <section id="donasi" className="py-24 bg-slate-50 relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-gradient-to-r from-brochure-blue-dark to-brochure-blue-medium rounded-[4rem] p-8 md:p-16 lg:p-20 text-white shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
+              <div className="relative z-10 flex flex-col lg:flex-row items-center gap-16">
+                <div className="lg:w-1/2">
+                  <div className="inline-block px-4 py-1.5 bg-yellow-400 text-brochure-blue-dark rounded-full text-xs font-black mb-6 animate-bounce">
+                    WAKAF JARIYAH : MUSHOLA SANTRI
+                  </div>
+                  <h2 className="text-3xl md:text-5xl font-black mb-8 leading-tight">
+                    Wujudkan Mushola Pertama <br/>Untuk 20 Santri Perintis
+                  </h2>
+                  <p className="text-blue-50 text-xl mb-10 leading-relaxed font-medium">
+                    Jadilah bagian dari pembangunan sarana ibadah pertama kami. Setiap batu bata yang Anda sumbangkan akan menjadi saksi lantunan Al-Quran para santri setiap hari.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-6">
+                    <button className="px-10 py-5 bg-yellow-400 text-brochure-blue-dark rounded-2xl font-black text-xl hover:bg-yellow-300 transition-all shadow-xl active:scale-95">
+                      Bantu Sekarang 🕌
+                    </button>
+                    <div className="bg-white/10 p-4 px-6 rounded-2xl border border-white/20 flex flex-col justify-center">
+                        <p className="text-blue-200 text-xs font-bold uppercase">Target Dana</p>
+                        <p className="text-xl font-black">Rp 150.000.000</p>
                     </div>
                   </div>
-                  <ul className="space-y-5 text-blue-50 font-bold text-lg">
-                    <li className="flex justify-between border-b border-white/10 pb-3"><span>Formulir</span> <span>100rb</span></li>
-                    <li className="flex justify-between border-b border-white/10 pb-3"><span>Wakaf</span> <span>1jt</span></li>
-                    <li className="flex justify-between border-b border-white/10 pb-3"><span>Kitab</span> <span>200rb</span></li>
-                    <li className="flex justify-between border-b border-white/10 pb-3"><span>Fasilitas</span> <span>700rb</span></li>
-                    <li className="flex justify-between"><span>Infaq Bulanan</span> <span>500rb</span></li>
-                  </ul>
                 </div>
-
-                <div className="bg-yellow-400 text-brochure-blue-dark p-6 rounded-[2rem] font-black text-center shadow-xl">
-                   GRATIS BIAYA BAGI ANAK YATIM
-                </div>
-              </div>
-              
-              <div className="lg:w-1/2 bg-white rounded-[3.5rem] p-10 md:p-16 text-slate-900 shadow-2xl relative z-10">
-                <div className="mb-12">
-                  <h4 className="text-3xl font-black text-brochure-blue-dark mb-4">Jalur Pendaftaran</h4>
-                  <p className="text-slate-500 font-medium leading-relaxed">Silakan klik nomor WhatsApp Ustadz pembimbing kami di bawah ini untuk konsultasi dan pendaftaran:</p>
-                </div>
-                <div className="space-y-6">
-                   {[
-                     { name: "Ustadz Furqon", phone: "0878-7759-5047", link: "6287877595047" },
-                     { name: "Ustadz Baihaqi", phone: "0895-3060-9802", link: "6289530609802" },
-                     { name: "Ustadz M Taufiq", phone: "0895-3290-49589", link: "62895329049589" }
-                   ].map(admin => (
-                     <a 
-                      key={admin.link} 
-                      href={`https://wa.me/${admin.link}`} 
-                      className="flex items-center p-8 bg-slate-50 rounded-[2rem] hover:bg-brochure-blue-dark hover:text-white transition-all border-2 border-slate-100 group shadow-sm hover:shadow-2xl hover:shadow-brochure-blue-dark/20 active:scale-95"
-                     >
-                        <div className="w-16 h-16 bg-brochure-blue-dark rounded-2xl flex items-center justify-center text-white mr-6 shadow-xl group-hover:bg-yellow-400 group-hover:text-brochure-blue-dark transition-colors">
-                          <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.767 0 1.267.405 2.436 1.096 3.39l-.715 2.614 2.68-.703c.815.48 1.761.758 2.706.758 3.181 0 5.767-2.586 5.767-5.767s-2.586-5.767-5.767-5.767zm3.387 8.192c-.137.387-.714.717-1.114.764-.316.035-.724.062-1.742-.36-1.306-.54-2.148-1.87-2.213-1.957-.065-.087-.525-.705-.525-1.35s.336-.963.456-1.096c.12-.132.261-.165.348-.165s.174.004.25.008c.08.004.185-.03.29-.286.11-.266.376-.921.411-1.002.035-.08.06-.174.01-.275s-.24-.31-.36-.464c-.115-.148-.242-.31-.104-.544.138-.234.615-.398.815-.398s.326.045.467.2c.142.155.534 1.32.61 1.474.075.155.125.336.02.544-.105.208-.16.336-.316.516-.156.181-.33.38-.474.51s-.3.266-.135.55c.165.284.733 1.206 1.572 1.954.542.483 1.003.774 1.368.95.367.177.587.165.808-.09.222-.254.965-1.121 1.221-1.503.256-.382.512-.318.86-.19s2.21 1.042 2.592 1.233c.382.19.638.286.733.447.095.161.095.932-.042 1.319z"/></svg>
-                        </div>
-                        <div>
-                          <p className="text-xs text-slate-400 font-black uppercase group-hover:text-blue-100">WhatsApp Admin</p>
-                          <p className="font-black text-2xl tracking-tighter">{admin.name}</p>
-                          <p className="text-sm font-bold opacity-70 group-hover:opacity-100">{admin.phone}</p>
-                        </div>
-                        <div className="ml-auto opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all">
-                          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        </div>
-                     </a>
-                   ))}
-                </div>
-                <div className="mt-12 text-center text-slate-400 font-black uppercase text-xs tracking-widest">
-                  Ahlan Wa Sahlan Di Daarul Hawariyyin
+                <div className="lg:w-1/2">
+                  <div className="relative">
+                    <img 
+                      src="https://images.unsplash.com/photo-1591604021695-0c69b7c05981?q=80&w=1000" 
+                      className="rounded-[3rem] shadow-2xl border-8 border-white/20 transform rotate-2" 
+                      alt="Pembangunan Mushola" 
+                    />
+                    <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-[2.5rem] shadow-2xl border border-blue-50 text-center">
+                       <p className="text-brochure-blue-dark font-black text-4xl">30%</p>
+                       <p className="text-slate-400 font-bold text-xs uppercase tracking-widest mt-1">Terkumpul</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
